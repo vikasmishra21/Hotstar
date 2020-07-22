@@ -1,0 +1,96 @@
+body{font-family: 'Lato',Helvetica,Arial,sans-serif;font-size:16px;letter-spacing: .5px;margin: 0;padding: 0;}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .45rem .75rem!important;
+    font-size: .8rem;
+    line-height: 1.7;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #f4f4f4;
+    border-radius: .15rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    background-color: #fafafa!important;
+    /* margin-top: 5px; */
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.01rem rgba(0,123,255,.25);
+}
+
+/*custom checkbox CSS*/
+.check {
+    width: 18px;
+    position: relative;
+    margin: 5px 5px 5px 0px;
+    font-size: 0.9rem;
+    height: 18px;
+    border: 1px #ccc solid;
+     border-radius: 2px;
+    color: #000000;
+    display: inherit;
+    padding-left:0px;
+}
+ .check label {
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 0px #000 solid;
+     border-radius: 2px;
+    padding-left: 25px;
+    color:#000;
+    text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+}
+ .check label:after {
+    content: '';
+    width: 12px;
+    height: 6px;
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    border: 2px #0FAAA4 solid;
+     border-top: none;
+    border-right: none;
+    background: transparent;
+    opacity: 0;
+    -webkit-transform: rotate(-45deg);
+     -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+ .check.dark-tick label:after{
+    border-color:#bcc700
+}
+ .check label:hover::after {
+    opacity: 0.5;
+}
+ .check input[type=checkbox] {
+    visibility: hidden;
+}
+ .check input[type=checkbox]:checked+label:after {
+    opacity: 1;
+}
+ .check input[aria-checked=true]+label {
+    border: 1px #20A4F3 solid;
+    background-color: #20A4F3;
+}
+
+/*custom radio CSS*/
+
+.round {width: 18px;height: 18px;position: relative;border-radius: 50px;min-height: 14px !important;
+    margin: 5px 5px 5px 0px;border: 1px solid #ccc;display: inherit;padding-left:0px;font-size: 0.9rem;}
+.round label {height: 1rem;cursor: pointer;position: absolute;left: 1px;padding-left: 25px;
+    min-height: 1rem;top: -2px;border: 0px;color: #000;width:300px}
+.round label:after {content: '';width:14px;height: 14px;position: absolute;top: 3px;left: 0px;background: #0FAAA4;
+    opacity: 0;border-radius: 50px;}
+.round label:hover::after {opacity: 0.5;}
+.round input[type=radio] {visibility: hidden;}
+.round input[type=radio]:checked+label:after {opacity: 1;}
+.round input[aria-checked=true]+label {border: 1px #20A4F3 solid;}

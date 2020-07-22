@@ -1,0 +1,40 @@
+.show{display: block}
+#modal-backdrop{position: fixed;top:0px;right:0px;left:0px;bottom: 0px;
+    background-color: rgba(0,0,0,.25);display: none;}
+
+    .table-secondary{background-color: #fafafa;}
+.table-secondary th{border-color:#e4e4e4;border-width:0px;letter-spacing: .5px;font-weight: 700;color:#4b57b9!important;font-weight: 700;}
+.table tr{cursor: pointer;font-size: 13px;}
+.table tr:hover td{background-color: #DDE9FF!important;
+    font-weight: bold;
+    color: #4385F4!important;
+    border-top-color: #DDE9FF;}
+agm-map {
+    height: 200px;
+   }
+.rowColor {
+    background-color: #DDE9FF;
+    font-weight: bold;
+    color: #4385F4!important;
+    border-top-color: #DDE9FF;
+}
+.rowColor:hover td {    
+    background-color: #DDE9FF;
+    font-weight: bold;
+    color: #4385F4!important;
+    border-top-color: #DDE9FF;
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 90%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    background-color: #4b57b9;
+    color: #fff;
+    padding: 10px;
+}

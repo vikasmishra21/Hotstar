@@ -1,0 +1,36 @@
+<div id="nav" class="sidenav pl-2 menu">
+  <a class="closebtn pt-2" title="Close" (click)="close()">&times;</a>
+  <div class="tab-content mb-5" id="myTabContent">
+    <div class="panel-group" id="Panelists" (click)="highlight($event,'Panelists');close();">
+      <div class="panel panel-default">
+        <div class="panel-heading clickable">
+          <h4 class="panel-title mb-0">
+            <a routerLink="PanelLists"><i class="fa fa-angle-right mr-1"></i><i
+                class="fa fa-users mr-1"></i>Panel Lists</a></h4>
+        </div>
+
+      </div>
+    </div>
+    <div class="panel-group" id="Allocation" (click)="highlight($event,'Allocation');close();">
+      <div class="panel panel-default">
+        <div class="panel-heading clickable">
+          <h4 class="panel-title mb-0">
+            <a routerLink="Allocation"><i class="fa fa-angle-right mr-1"></i><i
+                class="fa fa-check-square mr-1"></i>Allocation</a></h4>
+        </div>
+
+      </div>
+    </div>
+    <!-- <div class="panel-group" id="Payments" (click)="highlight($event,'Payments');close();">
+      <div class="panel panel-default">
+        <div class="panel-heading clickable">
+          <h4 class="panel-title mb-0">
+            <a routerLink="Payments"><i class="fa fa-angle-right mr-1"></i><i
+                class="fa fa-credit-card mr-1"></i>Payments</a></h4>
+        </div>
+
+      </div>
+    </div> -->
+  </div>
+
+</div>

@@ -1,0 +1,29 @@
+
+<div class="col-4 ml-auto mr-auto Login-box">
+   
+    <div class="col-12 float-left">
+      <h5 class="text-center" style="color:#4b57b9"><b>Login </b></h5>
+      <hr>
+    <div class="mb-4">
+        <label>Username</label>
+        <input type="text" class="form-control" [(ngModel)]="credentials.username">
+    </div>
+    <div class="mb-1">
+        <label>Password</label>
+        <input type="password" class="form-control" [(ngModel)]="credentials.password" (keyup)="onKeyUp($event)">
+    </div>
+    <div class="mb-4 clearfix">
+        <button class="btn btn-link float-right" style="font-size: .8rem;" (click)="forogotPassword()">Forgot your
+            password?</button>
+    </div>
+    <div class="mb-4">
+        <button (click)="login()" class="btn btn-primary w-100 click text-white" style="background-color: #4b57b9!important;">Login
+            <span *ngIf="loggingIn" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="bg"></div>
+<div class="text-center" style="position:absolute;top:10px;left:10px;"><img src="../../../assets/images/Ipsos-logo.png" style="height:50px" /></div>

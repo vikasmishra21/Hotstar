@@ -1,0 +1,54 @@
+<app-progress-loading [show]="showLoader"></app-progress-loading>
+
+<div id="filter-nav" class="sidenav pl-2" style="left: initial;right: -6px;">
+
+    <div class="font-sm text-white  mb-2 ml-2"><i class="fa fa-filter mr-2"></i>APPLY FILTER</div>
+    <div class="text-white p-2" style="font-size: .8rem;"><b><u>Note:</u></b> Please click on “Submit” after selecting
+        filters.</div>
+    <a class="closebtn pt-2" title="Close" (click)="close()">&times;</a>
+    <div class="mb-2">
+        <button class="btn btn-sm btn-success mr-2" (click)="submit()">Submit</button>
+        <button class="btn btn-sm btn-danger" (click)="clear()">Clear All</button></div>
+    <div class="filter-conatiner">
+        <div class="panel-group filterNav mt-0">
+            <div class="panel panel-default">
+                <div class="panel-body p-1" *ngFor="let filterWalk of filters; let i = index">
+                    <button (click)="toggleDetails[i]=!toggleDetails[i];getState()"
+                        class="form-control hand-pointer w-100">{{filterWalk.text}}</button>
+                    <div class="nested-dropdown brandsList" *ngIf="toggleDetails[i]">
+                        <div class="scrollOption" [attr.id]="filterWalk.text+(i+1)" (click)="itemChecked(filterWalk.text+(i+1))"
+                            *ngFor="let filterOptions of filterWalk.options; let i = index">
+                            <div class="mb-2 check" (click)="setValue(filterWalk.dbColumn, filterOptions.code)">
+                                <input type="checkbox" style="width: 20px;height: 16px;vertical-align: sub;">
+                                <label class="text-white"> {{filterOptions.text}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group filterNav mt-0">
+            <div class="panel panel-default">
+                <div class="panel-body p-1" *ngFor="let sortWalk of sorts; let i = index">
+                    <button (click)="toggleDetails[i + 3]=!toggleDetails[i + 3];getState()"
+                        class="form-control hand-pointer w-100">{{sortWalk.text}}</button>
+                    <div class="nested-dropdown brandsList" *ngIf="toggleDetails[i + 3]">
+                        <div class="{{sortWalk.text}} scrollOption" [attr.id]="sortOptions.code" (click)="itemCheckedRadio(sortWalk.text,sortOptions.code)"
+                            *ngFor="let sortOptions of sortWalk.options; let i = index">
+                            <div class="mb-2 round" (click)="setValueField(sortWalk.dbColumn, sortOptions.code)">
+                                <input type="radio" style="width: 20px;height: 16px;vertical-align: sub;">
+                                <label class="text-white"> {{sortOptions.text}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin: 10% 0;display: inline-block;width: 100%;text-align: center;">
+    </div>
+    
+</div>

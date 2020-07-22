@@ -1,0 +1,26 @@
+<button (click)="toggleSort()" class="form-control hand-pointer"><i class="fa fa-sort mr-1"></i>Sort By</button>
+<div class="nested-dropdown brandsList" *ngIf="showSort">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div><span class="text-white mb-2">Note: Atleast choose one of Fields.</span></div>
+    <select formControlName="field" class="form-control  hand-pointer" style="height: 27px;
+          width: 100%;
+          -webkit-appearance: none;">
+      <option disabled>Select</option>
+      <option>Fields</option>
+      <option *ngFor="let data of DataFields">{{data}}</option>
+    </select>
+    <br>
+    <select formControlName="order" class="form-control  hand-pointer" style="height: 27px;
+          width: 100%;
+          -webkit-appearance: none;">
+      <option disabled>Select</option>
+      <option>Order By</option>
+      <option *ngFor="let order of Order">{{order}}</option>
+    </select>
+    <div class="mt-2 mb-2">
+      <button class="btn btn-sm btn-primary w-100">Submit</button>
+    </div>
+  </form>
+
+</div>

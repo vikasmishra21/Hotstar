@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>IPSOS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <link
+		href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic"
+		rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- build:css css/combined.css -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- endbuild -->
+  </head>
+  <body>
+<header class="header">
+  <nav class="navbar navbar-default navbar-fixed-top" style="position: fixed;
+  left: 0px;
+  right: 0px;z-index: 9;background-color: #424242;">
+    <div class="container pl-0 pr-0">
+      <div class="w-100">        
+      <div class="text-center"><img style="height:50px;" src="./assets/images/Ipsos-logo.png"/></div>
+    
+      </div>
+     
+    </div>
+  </nav>
+</header>
+
+
+<div class="container p-3">
+    <div class="mt-1 align-items-center mt-5" style="margin-top: 85px!important;">
+      <p>Please fill out your details:</p>
+            <form action=""  method="post" id="hotstarRecruitmentForm">
+                <div class="pb-2">
+                    What is your name?
+                </div>
+                <div>
+                    <div class="input-group col-lg-12 mb-1">
+                        <input id="First_Name" type="text" name="First_Name"  required placeholder="First Name" class="form-control border-md">
+                    </div>
+                </div>
+                <div>
+                    <div class="input-group col-lg-12 mb-4">
+                        <input id="Last_Name" type="text" name="Last_Name"  required placeholder="Last Name" class="form-control border-md">
+                    </div>
+                </div>
+
+                <div class="pb-2">
+                   What is your phone number?
+                </div>
+                <div class="mb-4">
+                    <div class="input-group col-lg-12 mb-1">
+                        <!-- <select id="countryCode" style="max-width: 80px" class="custom-select form-control bg-white  border-md h-100 font-weight-bold text-muted">
+                            <option value="">+91</option>
+                            <option value="">+14</option>
+                            <option value="">+15</option>
+                            <option value="">+18</option>
+                        </select> -->
+                        <input id="phoneNumber" type="number" name="Mobile_Number" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required placeholder="Phone Number" class="form-control border-md pl-3">
+                    </div>
+                    <div class="col-12">
+                        <span class="text-danger text-small" id="phone-error"></span>
+                    </div>
+                </div>
+
+                <div class="pb-2">
+                   What is your age?
+                </div>
+                <div class="mb-4">
+                    <div class="input-group col-lg-12 mb-1">
+                        <input id="age" type="number" name="Age"  required placeholder="Age" class="form-control border-md pl-3">
+                    </div>
+                    <div class="col-12">
+                        <span class="text-danger text-small" id="age-error"></span>
+                    </div>
+                </div>
+                
+                <div class="pb-2">
+                    What is your gender?
+                </div>
+                <fieldset class="form-group mb-4">
+                    <div>
+                      <div class="col-sm-10">
+                        <div class="form-check round">
+                          <input class="form-check-input" type="radio" name="Gender" id="gridRadios1" value="1">
+                          <label class="form-check-label" for="gridRadios1">
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check round">
+                          <input class="form-check-input" type="radio" name="Gender" id="gridRadios2" value="2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Female
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col-sm-10">
+                        <span class="text-danger text-small" id="gender-error"></span>
+                    </div>
+                    </div>
+                  </fieldset>
+
+                  <div class="pb-2">
+                 What is your address?
+                </div>
+                  <div class="form-group mb-1">
+                    <input type="text" class="form-control" name="Address_Line1" id="inputAddress1" required placeholder="Address Line 1">
+                  </div>
+                  <div class="col-12">
+                    <span class="text-danger text-small" id="addressLine1-error"></span>
+                </div>
+                  <div class="form-group mb-1">
+                    <input type="text" class="form-control" name="Address_Line2" id="inputAddress2" required placeholder="Address Line 2">
+                  </div>
+                  <div class="col-12">
+                    <span class="text-danger text-small" id="addressLine2-error"></span>
+                </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6 mb-1">                      
+                      <select id="inputCity" name="City" required class="form-control custom-select bg-white border-md">
+                        <option value="">City</option>
+                        <option value="1">NCR</option>
+                        <option value="2">Mumbai</option>
+                        <option value="3">Kolkata</option>
+                        <option value="4">Chennai</option>
+                        <option value="5">Bengaluru</option>
+                        <option value="6">Hyderabad</option>
+                        <option value="7">Ahmedabad</option>
+                        <option value="8">Surat</option>
+                        <option value="9">Pune</option>
+                        <option value="10">Jaipur</option>
+                    </select>
+                    </div>
+                    <div class="form-group col-md-4 mb-1">                     
+                      <input type="text" class="form-control" placeholder="State" id="inputState" required>
+                      <input type="hidden" class="form-control" name="State" id="stateCode">
+                    </div>
+                    <div class="form-group col-md-2 mb-4">                     
+                      <input type="text" class="form-control" placeholder="Zip Code"  id="inputZip" required>
+                      <span class="text-danger text-small" id="pin-error"></span>
+                    </div>
+                  </div>
+
+                  <div class="pb-2">
+                   SHOWCARD 4a Please take a look at this list and tell me which of these items do you have at home? (It could be owned by you, your family, or provided by the employer or it could be available in the house you live in; but it should be for the use of just you or your family)  
+                    Do you have a………..… (ITEM) in your home (which is in working condition)?  
+                        
+                         Does your family own any agricultural land, by agricultural land I mean land that is currently under cultivation or plantation?
+                </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="1" id="grid1">
+                        <label class="form-check-label" for="grid1">
+                            Electricity Connection
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="2" id="grid2">
+                        <label class="form-check-label" for="grid2">
+                            Ceiling Fan
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="3" id="grid3">
+                        <label class="form-check-label" for="grid3">
+                            LPG Stove
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="4" id="grid4">
+                        <label class="form-check-label" for="grid4">
+                            Two Wheeler
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="5" id="grid5">
+                        <label class="form-check-label" for="grid5">
+                            Color TV
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="6" id="grid6">
+                        <label class="form-check-label" for="grid6">
+                          Refrigerator
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="7" id="grid7">
+                        <label class="form-check-label" for="grid7">
+                            Washing Machine
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="8" id="grid8">
+                        <label class="form-check-label" for="grid8">
+                            Personal Computer/Laptop
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="9" id="grid9">
+                        <label class="form-check-label" for="grid9">
+                            Car/Jeep/Van
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="10" id="grid10">
+                        <label class="form-check-label" for="grid10">
+                            Air Conditioner
+                        </label>
+                      </div>
+                      <div class="form-check mb-4 check">
+                        <input class="form-check-input" type="checkbox" name="Items_Owned" value="11" id="grid11">
+                        <label class="form-check-label" for="grid11">
+                            Agricultural land
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pb-2">
+                Please also tell me what is the highest education level of the Chief Wage Earner?
+                </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <div class="form-check round">
+                        <input class="form-check-input" type="radio" name="Education" required value="1" id="gridCheck1" >
+                        <label class="form-check-label" for="gridCheck1">
+                          Illiterate
+                        </label>
+                      </div>
+                      <div class="form-check round">
+                        <input class="form-check-input" type="radio" name="Education" required value="2" id="gridCheck2" >
+                        <label class="form-check-label" for="gridCheck2">
+                          Literate but not formal schooling/ <br>School-up to 4 years
+                        </label>
+                      </div>
+                      <div class="form-check round mt-4">
+                        <input class="form-check-input" type="radio" name="Education" required value="3" id="gridCheck3" >
+                        <label class="form-check-label" for="gridCheck3">
+                          School-5 to 9 years
+                        </label>
+                      </div>
+                      <div class="form-check round">
+                        <input class="form-check-input" type="radio" name="Education" required value="4" id="gridCheck4" >
+                        <label class="form-check-label" for="gridCheck4">
+                          SSC/ HSC
+                        </label>
+                      </div>
+                      <div class="form-check round">
+                        <input class="form-check-input" type="radio" name="Education" required value="5" id="gridCheck5" >
+                        <label class="form-check-label" for="gridCheck5">
+                          Some College (incl. a Diploma but not Grad.)
+                        </label>
+                      </div>
+                      <div class="form-check round mt-4">
+                        <input class="form-check-input" type="radio" name="Education" required value="6" id="gridCheck6" >
+                        <label class="form-check-label" for="gridCheck6">
+                          Graduate/ Post Graduate: General
+                        </label>
+                      </div>
+                      <div class="form-check mb-4 round">
+                        <input class="form-check-input" type="radio" name="Education" required value="7" id="gridCheck7" >
+                        <label class="form-check-label" for="gridCheck7">
+                            Graduate/ Post Graduate: Professional
+                        </label>
+                      </div>
+                      <input type="hidden" name='NCCS' id="nccs" />
+                    </div>
+                    <div class="col-12">
+                        <span class="text-danger text-small" id="nccs-error"></span>
+                    </div>
+                  </div>
+                
+                <div>
+
+                  <div class="pb-2">
+                    What type of TV do you have at home? 
+                </div>
+                  <div class="form-group">
+                    <div class="col-sm-12" >
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Owned_TvType" value="1" id="tv1" >
+                        <label class="form-check-label" for="tv1">
+                          I have Smart TV through which internet can be accessed
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Owned_TvType" value="2" id="tv2" >
+                        <label class="form-check-label" for="tv2">
+                          I access internet by attaching external devices like Amazon Firestick, Chromecast, etc. to my TV
+                        </label>
+                      </div>
+                      <div class="form-check check">
+                        <input class="form-check-input" type="checkbox" name="Owned_TvType" value="3" id="tv3">
+                        <label class="form-check-label" for="tv3" >
+                          I am not accessing internet on my TV (not a smart TV)
+                        </label>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                    <div class="form-group col-lg-12 mx-auto mb-0">
+                        <button type="submit" id="submitButton" class="btn btn-primary btn-block py-2" style="background-color: #0FAAA4;border-color:#0FAAA4;">
+                            <span class="font-weight-bold">Submit</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script> 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> 
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+  
+  <!-- build:js scripts/combined.js -->
+  <script type="text/javascript" src="assets/js/NCCS-Code-logic.js"></script> 
+  <script type="text/javascript" src="assets/js/cityStateMap.js"></script>
+  <script type="text/javascript" src="assets/js/hotstarPost-service.js"></script> 
+  <!-- endbuild -->
+  
+</body>
+</html>

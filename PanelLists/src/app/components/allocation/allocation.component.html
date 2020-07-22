@@ -1,0 +1,127 @@
+<app-progress-loading [show]="showLoader"></app-progress-loading>
+<app-header></app-header>
+
+<div class="col-12" style="margin-top:70px">
+
+  <div class="card">
+    <div class="card-header">
+      <label class="float-left btn btn-primary btn-sm">
+        <input type="checkbox" class="mr-1" style="width: 20px;height: 16px;vertical-align: sub;"
+          [(ngModel)]="theCheckbox" data-md-icheck (change)="toggleVisibility($event)" />
+        <span *ngIf="!marked" class="text-white font-weight-bold">Select All</span>
+        <span *ngIf="marked" class="text-white font-weight-bold">Unselect All</span>
+
+        <span class="checkmark"></span>
+      </label>
+      <!-- <button class="btn btn-primary float-left btn-sm ml-2" (click)="openModal()"> Select</button> -->
+      <button class="btn btn-primary float-left btn-sm ml-2" [disabled]="idListLength === 0" mat-raised-button
+        (click)="openDialog()">Allocate</button>
+      <span class=" float-right badge mr-1">Total Selected: {{idListLength}}</span>
+      <span class="d-inline-block float-right badge mr-2">Total Available: {{pannellistLength}}</span>
+      <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+
+      <div class="border">
+        <table class="table table-hover mb-0 " id="brandHeader" [style.width.px]="getContentWidth()"
+          style="table-layout: fixed;">
+          <thead class="table-secondary font-weight-bold">
+            <tr>
+              <th style="width:50px;">ID</th>
+              <th style="width:120px;">Name</th>
+              <th style="width:120px;">State</th>
+              <th style="width:120px;">City</th>
+              <th style="width:120px;">Number</th>
+              <th style="width:80px;">Age</th>
+              <th style="width:100px;">Gender</th>
+              <th style="width:80px;">NCCS</th>
+              <th>Address</th>
+              <th>Education</th>
+              <th style="width:200px;">Owned Tv Type</th>
+            </tr>
+          </thead>
+        </table>
+        <div style="overflow: auto;" [style.height.px]="getContentHeight()">
+          <table id="brandData" class="table table-hover mb-0" style="table-layout: fixed;">
+            <tbody>
+              <tr *ngFor="let panelDetails of panallistData; let i = index" [ngClass]="{'rowColor': marked === true}"
+                (click)="setValue('id', panelDetails.id);clickEvent(panelDetails.id)" class="selected click"
+                [attr.id]="panelDetails.id">
+                <td style="width:50px;">{{panelDetails.id}}</td>
+                <td style="width:120px;">{{panelDetails.first_Name + " " + panelDetails.last_Name}}</td>
+                <td style="width:120px;">{{stateMapping[panelDetails.state]}}</td>
+                <td style="width:120px;">{{cityMapping[panelDetails.city]}}</td>
+                <td style="width:120px;">{{panelDetails.mobile_Number}}</td>
+                <td style="width:80px;">{{panelDetails.age}}</td>
+                <td style="width:100px;">{{genderMapping[panelDetails.gender]}}</td>
+                <td style="width:80px;">{{nccsMapping[panelDetails.nccs]}}</td>
+                <td>{{panelDetails.address_Line1 + " " + panelDetails.address_Line2}}</td>
+                <td>{{educationMapping[panelDetails.education]}}</td>
+                <td style="width:200px;" >
+                  <div *ngIf="panelDetails.owned_TvType && panelDetails.owned_TvType.length !== 0">
+                    <span *ngIf="panelDetails.owned_TvType[0]">
+                      {{ownedtv[panelDetails.owned_TvType[0]]}} <br>
+                    </span>
+                    <span *ngIf="panelDetails.owned_TvType[1]">
+                      {{ownedtv[panelDetails.owned_TvType[1]]}} <br>
+                    </span>
+                    <span *ngIf="panelDetails.owned_TvType[2]">
+                      {{ownedtv[panelDetails.owned_TvType[2]]}}
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<!-- <div id="modal-backdrop" *ngIf="isModelOpen"></div>
+<div class="modal" id="myModal" *ngIf="isModelOpen">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h6 class="modal-title font-weight-bold">Allocate survey to {{idListLength}} panelists</h6>
+        <button id="close_popup" (click)="close()" type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="container">
+              
+              <form [formGroup]="form" (ngSubmit)="submit()">
+                
+                <div class="form-group">
+                  <select formControlName="projectName" class="form-control">
+                    <option disabled>Survey name</option>
+                    <option *ngFor="let project of surveyNameArray">{{project}}</option>
+                  </select>
+                  <div *ngIf="getFormValue.projectName.touched && getFormValue.projectName.invalid"
+                  class="alert alert-danger">
+                  <div *ngIf="getFormValue.projectName.errors.required">Please select the project.</div>
+                </div>
+              </div>
+              
+              <button class="btn btn-primary" type="submit">Allocate</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-6">
+          </div>
+          <div class="col-6">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div> -->

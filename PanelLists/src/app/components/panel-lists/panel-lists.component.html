@@ -1,0 +1,139 @@
+<app-progress-loading [show]="showLoader"></app-progress-loading>
+<app-header></app-header>
+
+<div class="col-12" style="margin-top:70px">
+  <div class="card">
+    <div class="card-header p-2 text-primary">
+      <h6 class="float-left mb-0 pl-2 pt-2"><i class="fa fa-users mr-2"></i>Panel List</h6>
+      <span class="float-right badge mr-3"> <b>Total Count: {{" " + pannellistLength}}</b></span>
+      <div class="clearfix"></div>
+    </div>
+    <div class="card-body" style="overflow: auto;">
+      <div class="border">
+        <div style="overflow-y: auto;">
+        <table class="table table-hover mb-0" id="brandHeader" 
+          style="table-layout: fixed;">
+          
+        </table>
+      </div>
+        <div style="overflow-y: auto;" [style.height.px]="getContentHeight()">
+          <table id="brandData" class="table table-hover mb-0" style="table-layout: fixed;">
+            <thead class="table-secondary">
+              <tr>
+                <th style="width:80px;">ID</th>
+                <th style="width:80px;">Action</th>
+                <th style="width:120px;">Name</th>
+                <th style="width:120px;">State</th>
+                <th style="width:100px;">City</th>
+                <th style="width:120px;">Number</th>
+                <th style="width:50px;">Age</th>
+                <th style="width:80px;">Gender</th>
+                <th style="width:80px;">NCCS</th>
+                <th style="width:200px;">Address</th>
+                <th style="width:200px;">Education</th>
+                <th style="width:200px;">Owned Tv Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let panelDetails of panallistData; let i = index">
+                <td style="width:80px;" (click)="openModal(panelDetails)" class="click">{{panelDetails.id}}</td>
+                <td style="width:80px;">
+                  <div>
+                    <i *ngIf="panelDetails.status == 4" class="text-success p-1 rounded mr-1 fa fa-thumbs-up border"
+                      title="Accept" (click)="changeStatus(panelDetails.id, 5)"></i>
+                    <i *ngIf="panelDetails.status == 4" class="text-danger p-1 rounded mr-1 fa fa-thumbs-down border"
+                      title="Reject" (click)="changeStatus(panelDetails.id, 6)"></i>
+                    <i *ngIf="panelDetails.status == 5"
+                      class="text-default p-1 rounded mr-1 fa fa-exclamation-triangle border" title="Deactivate"
+                      (click)="changeStatus(panelDetails.id, 7)"></i>
+                    <i *ngIf="panelDetails.status == 7" class="text-default p-1 rounded mr-1 fa fa-window-close border"
+                      title="Deactivated"></i>
+                    <i *ngIf="panelDetails.status == 6" class="text-default p-1 rounded mr-1 fa fa-ban border"
+                      title="Rejected"></i>
+
+                  </div>
+                </td>
+                <td style="width:120px;" (click)="openModal(panelDetails)" class="click">
+                  {{panelDetails.first_Name + " " + panelDetails.last_Name}}</td>
+                <td style="width:120px;" (click)="openModal(panelDetails)" class="click">
+                  {{stateMapping[panelDetails.state]}}</td>
+                <td style="width:100px;" (click)="openModal(panelDetails)" class="click">
+                  {{cityMapping[panelDetails.city]}}</td>
+                <td style="width:120px;" (click)="openModal(panelDetails)" class="click">{{panelDetails.mobile_Number}}
+                </td>
+                <td style="width:50px;" (click)="openModal(panelDetails)" class="click">{{panelDetails.age}}</td>
+                <td style="width:80px;" (click)="openModal(panelDetails)" class="click">
+                  {{genderMapping[panelDetails.gender]}}</td>
+                <td style="width:80px;" (click)="openModal(panelDetails)" class="click">
+                  {{nccsMapping[panelDetails.nccs]}}</td>
+                <td style="width:200px;"(click)="openModal(panelDetails)" class="click">
+                  {{panelDetails.address_Line1 + " " + panelDetails.address_Line2}}</td>
+                <td style="width:200px;" (click)="openModal(panelDetails)" class="click">{{educationMapping[panelDetails.education]}}</td>
+                <td style="width:200px;" (click)="openModal(panelDetails)" class="click">
+                  <div *ngIf="panelDetails.owned_TvType && panelDetails.owned_TvType.length !== 0">
+                    <span *ngIf="panelDetails.owned_TvType[0]">
+                      {{ownedtv[panelDetails.owned_TvType[0]]}} <br>
+                    </span>
+                    <span *ngIf="panelDetails.owned_TvType[1]">
+                      {{ownedtv[panelDetails.owned_TvType[1]]}} <br>
+                    </span>
+                    <span *ngIf="panelDetails.owned_TvType[2]">
+                      {{ownedtv[panelDetails.owned_TvType[2]]}}
+                    </span>
+                  </div>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="modal-backdrop" *ngIf="isModelOpen"></div>
+<div class="modal" id="myModal" *ngIf="isModelOpen">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h6 class="modal-title font-weight-bold">{{panellistName}}</h6>
+        <button id="close_popup" (click)="close()" type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 mt-3">
+            <p class="mb-1"><span><b>Phone Number: </b></span><span
+                class="text-primary font-weight-bold">{{panellistPhone}}</span></p>
+            <p class="mb-1"><span><b>Address: </b></span><span
+                class="text-primary font-weight-bold">{{panellistAddress}}</span></p>
+            <p><span><b>Total Survey: </b></span><span class="text-primary font-weight-bold">{{surveyCount}}</span></p>
+            <br>
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="close()" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

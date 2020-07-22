@@ -1,0 +1,31 @@
+<!-- <app-progress-loading [show]="showLoader"></app-progress-loading> -->
+
+<h4 mat-dialog-title class="text-primary d-inline-block" style="font-size:16px">Allocate survey to
+  {{panelistDetails[1]}} panellists</h4>
+<button id="close_popup" (click)="close()" type="button" class="close click">
+  <i class="fa fa-times" aria-hidden="true" style="font-size:20px"></i></button>
+
+<div mat-dialog-content>
+
+  <mat-label>Survey Name</mat-label>
+  <mat-select [(value)]="selected" class="border rounded form-control" style="font-size: 14px;;">
+    <!-- <mat-option>None</mat-option> -->
+    <mat-option value="{{projectObj.projectName}}" *ngFor="let projectObj of projectDetailsList">
+      {{projectObj.projectName}}</mat-option>
+  </mat-select>
+  <div class="d-inline-block text-danger" *ngIf="isValidModal === true && selected === ''">Survey name is missing.</div>
+  <br>
+  <br>
+  <mat-label>Survey Expiry</mat-label>
+  <input matInput [matDatepicker]="picker" [min]="todaysDate" (dateInput)="selectDateEvent('input', $event)"
+    (dateChange)="selectDateEvent('change', $event)" class="form-control d-inline-block" style="width:87%">
+  <mat-datepicker-toggle matSuffix [for]="picker" class="d-inline-block"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+
+</div>
+<div class="d-inline-block text-danger" *ngIf="isValidModal === true && isDateValid === false">Expiry Date is missing.
+</div>
+<div mat-dialog-actions class="pb-3 pt-3 d-flex flex-row justify-content-end">
+  <button mat-button (click)="allocate()" class="align-right btn btn-primary click">Allocate</button>
+  <!-- <button mat-button  cdkFocusInitial>Ok</button> -->
+</div>
